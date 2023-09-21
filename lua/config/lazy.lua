@@ -6,6 +6,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 vim.opt.foldmethod = "syntax"
+vim.opt.foldlevel = 100 -- don't autofold anything
+vim.opt.foldnestmax = 3 -- maximum nesting
+vim.opt.foldopen:append("jump") -- what movements open folds
 
 require("lazy").setup({
   spec = {
